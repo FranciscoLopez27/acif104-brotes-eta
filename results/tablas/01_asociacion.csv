@@ -1,0 +1,11 @@
+,Variable,Prueba,V de Cramér,valor p
+1,comuna de consumo,Chi-cuadrado,0.376,9.851492447886807e-276
+0,Región de consumo,Chi-cuadrado,0.323,0.0
+5,Alimento Sospechoso,Chi-cuadrado,0.294,2.8028834862271303e-210
+6,Sub agrupación alimento sospechoso,Chi-cuadrado,0.257,5.869885311142345e-205
+4,Grupo Alimento Sospechoso,Chi-cuadrado,0.206,6.735393371120739e-131
+8,mes,Chi-cuadrado,0.143,9.188992772549176e-63
+7,Grandes grupos alimentos sospechoso,Chi-cuadrado,0.106,4.82750954347566e-36
+2,Local de elaboración,Chi-cuadrado,0.091,1.9501800010611896e-26
+3,Local consumo,Chi-cuadrado,0.082,2.6386545046448107e-19
+9,Periodo de Incubación Días,Mann-Whitney,,0.00370859952941936

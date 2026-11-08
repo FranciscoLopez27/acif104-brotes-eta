@@ -1,0 +1,4 @@
+conjunto,años,brotes,específicos,prevalencia,% del total
+Entrenamiento,2012–2020,8327,1767,21.2,58.5
+Validación,2021–2022,1424,317,22.3,10.0
+Prueba,2023–2025,4493,797,17.7,31.5

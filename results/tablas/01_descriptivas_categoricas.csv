@@ -1,0 +1,21 @@
+,categorías,más frecuente,frecuencia (%)
+N° Brote ETA,16855,MET20230015,0.0
+Región de consumo,16,Metropolitana de Santiago,21.7
+comuna de consumo,343,Arica,4.8
+Grupo Alimento Sospechoso,19,Comidas Y Platos Preparados,39.2
+Alimento Sospechoso,121,"Comidas y platos mixtos con ingrediente(s) crudo(s) y/o cocido(s), incluidos emparedados",17.1
+Sub agrupación alimento sospechoso,24,Comidas y platos preparados,39.2
+Grandes grupos alimentos sospechoso,6,Otros alimentos,43.9
+Local de elaboración,5,Lugar Autopreparación,43.7
+Local consumo,8,Hogar,53.8
+Glosa_contaminación,9,"Obtención, ingestión, de productos crudos o ingredientes contaminados por patógenos provenientes de animales o del medio ambiente",31.7
+Glosa_supervivencia,6,Otras fallas de procesamiento que le permiten al agente sobrevivir no descritas arriba,48.7
+Glosa proliferación,8,"Otras situaciones que faciliten o permitan el crecimiento microbiano o la producción de toxinas, no descrita arriba",57.1
+Proceso de pérdida de inocuidad,7,Manipulación doméstica,41.5
+Lugar Perdida Inocuidad,2,Domicilio,52.6
+Diagnostico especifico,82,"Intoxicación alimentaria bacteriana, no especificada",38.6
+Código CIE-10,55,A059,38.6
+Diagnostico agrupado,29,Diagnostico inespecifico,79.8
+Tipo de Diagnostico,2,Diagnostico inespecifico,79.8
+Tipo de agente,4,Bacterias,68.9
+Conclusión del brote,4,"Realizada, se confirma ",92.6

@@ -1,0 +1,6 @@
+,Q1,Mediana,Q3,Límite superior,Máximo,Atípicos,% atípicos
+Período de incubación (días),0.0,1.0,1.0,2.5,65.0,355.0,2.1
+Retraso de notificación (días),1.0,2.0,4.0,8.5,227.0,863.0,5.3
+Enfermos,2.0,3.0,5.0,9.5,5470.0,1699.0,10.1
+Expuestos,3.0,4.0,8.0,15.5,113851.0,2940.0,17.5
+Duración del brote (días),0.0,0.0,1.0,2.5,189.0,1666.0,9.9
