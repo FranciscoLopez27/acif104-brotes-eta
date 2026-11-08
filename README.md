@@ -1,7 +1,7 @@
 # Predicción del diagnóstico específico en brotes de ETA en Chile
 
 Proyecto del curso **Aprendizaje de Máquinas (ACIF104)**, Universidad Andrés Bello.
-Integrantes: Francisco López y [nombre del compañero].
+Integrantes: Sandro Pizarro y Francisco López.
 
 Modelo de clasificación que estima, **al momento de la notificación**, la probabilidad de que un brote de enfermedad transmitida por alimentos (ETA) llegue a **diagnóstico específico** (agente identificado). Busca apoyar a las SEREMI de Salud en la priorización de la investigación de laboratorio.
 
