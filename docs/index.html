@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Registrar brote · Priorización ETA (maqueta)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&amp;display=swap">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+<div class="app">
+  <nav class="menu" aria-label="Menú principal">
+    <div class="marca"><strong>Priorización ETA</strong><span>Apoyo a la investigación de brotes</span></div>
+    <div class="enlaces">
+      <a href="index.html" class="activo" aria-current="page">Registrar brote</a>
+      <a href="resultado.html">Resultado</a>
+      <a href="panel.html">Panel histórico</a>
+      <a href="resultado_real.html">Resultado real y monitoreo</a>
+      <a href="arquitectura.html">Arquitectura del sistema</a>
+    </div>
+    <div class="pie-menu">Maqueta del prototipo · ACIF104<br>Modelo v1.0: Random Forest con ponderación de clases, entrenado con brotes 2012–2022</div>
+  </nav>
+
+  <main>
+    <header>
+      <h1>Registrar un brote notificado</h1>
+      <p class="sub">Ingrese solo la información disponible al momento de la notificación. No se solicitan datos personales ni cifras de afectados.</p>
+    </header>
+
+    <form class="tarjeta" action="resultado.html">
+      <fieldset>
+        <legend>Fechas del brote</legend>
+        <div class="grid3">
+          <div class="campo"><label for="f-notif">Fecha de notificación *</label><input id="f-notif" type="date" value="2026-01-14" required></div>
+          <div class="campo"><label for="f-ing">Fecha de ingestión *</label><input id="f-ing" type="date" value="2026-01-10" required></div>
+          <div class="campo"><label for="f-inc">Período de incubación (días) *</label><input id="f-inc" type="number" min="0" max="30" value="1" required></div>
+        </div>
+        <p class="aviso ok" role="status">✓ Fechas coherentes: la ingestión es anterior a la notificación (retraso de 4 días).</p>
+      </fieldset>
+
+      <fieldset>
+        <legend>Lugar</legend>
+        <div class="grid2">
+          <div class="campo"><label for="f-reg">Región de consumo *</label><select id="f-reg"><option>Biobío</option><option>Valparaíso</option><option>Metropolitana de Santiago</option></select></div>
+          <div class="campo"><label for="f-com">Comuna de consumo *</label><select id="f-com"><option>Concepción</option></select></div>
+          <div class="campo"><label for="f-elab">Lugar de elaboración *</label><select id="f-elab"><option>Instalación de elaboración y consumo</option><option>Lugar de autopreparación</option></select></div>
+          <div class="campo"><label for="f-cons">Lugar de consumo *</label><select id="f-cons"><option>Instalación de preparación y consumo inmediato</option><option>Hogar</option></select></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Alimento sospechoso</legend>
+        <div class="grid2">
+          <div class="campo"><label for="f-grupo">Grupo de alimento *</label><select id="f-grupo"><option>Huevos y ovoproductos</option><option>Pescados y productos de la pesca</option></select></div>
+          <div class="campo"><label for="f-alim">Alimento *</label><select id="f-alim"><option>Mayonesa y otras salsas a base de huevo</option></select></div>
+        </div>
+        <p class="nota">Listas cerradas con las categorías de la base del DEIS. Si el alimento aún no se conoce, elija «Desconocido».</p>
+      </fieldset>
+
+      <div class="acciones">
+        <button type="submit" class="boton primario">Estimar probabilidad</button>
+        <a href="index.html" class="boton secundario">Limpiar formulario</a>
+        <span class="nota">* Campo obligatorio</span>
+      </div>
+    </form>
+    <p class="nota">Maqueta navegable: los valores son de ejemplo y el formulario no envía datos.</p>
+  </main>
+</div>
+</body>
+</html>
