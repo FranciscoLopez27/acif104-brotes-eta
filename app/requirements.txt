@@ -1,0 +1,13 @@
+# Dependencias de la aplicación (Streamlit Community Cloud).
+# Mismas versiones con que se entrenó y guardó el modelo en Colab: un modelo de scikit-learn
+# guardado con una versión puede fallar o cambiar sus resultados si se carga con otra.
+scikit-learn==1.6.1
+numpy==2.4.6
+pandas==2.2.3
+joblib==1.6.0
+scipy==1.16.3
+matplotlib==3.10.0
+shap==0.54.1
+imbalanced-learn==0.14.2
+openpyxl==3.1.5
+streamlit
