@@ -15,7 +15,7 @@ def cargar(ruta=RUTA_DATOS):
     return df
 
 
-def preparar(df, solo_confirmados=True):
+def preparar(df, solo_confirmados=True, desde=2012):
     """Aplica las decisiones del análisis exploratorio.
 
     solo_confirmados=True  → población de la fase 1: brotes con diagnóstico y conclusión "se confirma".
@@ -45,7 +45,7 @@ def preparar(df, solo_confirmados=True):
         x[c] = s.where(~s.isin(["Sin definir", "Sin identificar"])).fillna("Desconocido").astype(object)
 
     x["tasa_hist_region"] = tasa_regional_historica(x)
-    return x[x["Año estadistico"] >= 2012].copy()          # 2011 solo sirve como historia
+    return x[x["Año estadistico"] >= desde].copy()          # 2011 solo sirve como historia
 
 
 def tasa_regional_historica(x, m=50):
