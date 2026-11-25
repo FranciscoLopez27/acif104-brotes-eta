@@ -119,3 +119,45 @@ def predecir(fila, artefacto):
   p_ref = float(cal.transform(ML.probabilidad(modelo, M_ref))[0])
   return {"prob_real": p_real, "prob_referencia": p_ref,
           "nivel_real": nivel(p_real, artefacto), "nivel_referencia": nivel(p_ref, artefacto)}
+
+
+# ---------------------------------------------------------------- explicación (SHAP)
+NOMBRES_VARIABLES = {
+    "Región de consumo": "Región", "comuna de consumo": "Comuna",
+    "Local de elaboración": "Lugar de elaboración", "Local consumo": "Lugar de consumo",
+    "Grupo Alimento Sospechoso": "Grupo de alimento", "Alimento Sospechoso": "Alimento",
+    "Sub agrupación alimento sospechoso": "Subagrupación de alimento",
+    "Grandes grupos alimentos sospechoso": "Grandes grupos de alimento",
+    "Año estadistico": "Año", "incubacion": "Incubación (días)", "retraso_notif": "Retraso de notificación (días)",
+    "mes": "Mes", "Semana estadistica": "Semana", "temporada_estival": "Temporada estival",
+    "tasa_hist_region": "Tasa histórica de la región",
+}
+
+
+def explicar(fila, artefacto, explainer, n=5):
+    """Factores que más influyeron en la probabilidad (SHAP), expresados en la escala CALIBRADA.
+
+    SHAP explica la probabilidad sin calibrar del Random Forest. Como la calibración de Platt es creciente,
+    cada contribución se reescala por el mismo factor para que todas sumen exactamente la diferencia entre la
+    probabilidad calibrada del brote y la de un brote promedio (el valor base calibrado). Así se conserva el
+    signo y el tamaño relativo de cada factor. Devuelve (DataFrame de factores, valor base calibrado)."""
+    import shap  # noqa: F401  (el explainer ya viene creado; se importa para dejar explícita la dependencia)
+
+    cod, modelo, cal = artefacto["codificador"], artefacto["modelo"], artefacto["calibrador"]
+    M = cod.transform(fila)
+    sv = explainer.shap_values(M, check_additivity=False)
+    sv = sv[1] if isinstance(sv, list) else (sv[:, :, 1] if np.ndim(sv) == 3 else sv)   # clase "específico"
+    sv = np.asarray(sv)[0]
+    base = explainer.expected_value
+    base = float(base[1]) if np.ndim(base) else float(base)
+
+    p_cruda = float(ML.probabilidad(modelo, M)[0])
+    base_cal, p_cal = (float(v) for v in cal.transform(np.array([base, p_cruda])))
+    factor = (p_cal - base_cal) / (p_cruda - base) if abs(p_cruda - base) > 1e-9 else 0.0
+
+    valores = fila.iloc[0]
+    tabla = pd.DataFrame({"variable": [NOMBRES_VARIABLES[c] for c in CAT + NUM],
+                          "valor": [valores[c] for c in CAT + NUM],
+                          "contribucion": sv * factor})
+    tabla = tabla.reindex(tabla.contribucion.abs().sort_values(ascending=False).index).head(n)
+    return tabla.reset_index(drop=True), base_cal

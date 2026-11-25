@@ -10,4 +10,4 @@ matplotlib==3.10.0
 shap==0.54.1
 imbalanced-learn==0.14.2
 openpyxl==3.1.5
-streamlit
+streamlit==1.67.0
